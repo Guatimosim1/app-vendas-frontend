@@ -1,0 +1,32 @@
+
+<h4 class="text-success">{{titulo}}</h4>
+
+<h4>Data da exibição da lista: {{ dataAtual | date:'dd/MM/yyyy' }}</h4>
+
+<div class="mb-3">
+    <label class="form-label">Informe partes do nome:</label>
+    <input type="text" class="form-control" #busca (keyup)="0" />
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <th>CPF</th>
+        <th>NOME</th>
+        <th>EMAIL</th>
+        <th>TELEFONE</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of clientes | sublista:busca.value">
+            <td>{{c.cpf}}</td>
+            <td>{{c.nome | uppercase}}</td>
+            <td>{{c.email}}</td>
+            <td>{{c.telefone}}</td>
+            <td>
+                <a routerLink="/clientes/alteracao/{{c.cpf}}"><i class="bi bi-pencil"></i></a> |
+                <a routerLink="/clientes/remocao/{{c.cpf}}"><i class="bi bi-trash"></i></a> |
+                <a routerLink="/pedidos/lista/{{c.cpf}}"><i class="bi bi-eye"></i></a>
+            </td>
+        </tr>
+    </tbody>
+</table>

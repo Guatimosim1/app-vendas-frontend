@@ -1,0 +1,13 @@
+.margem {
+    margin: auto;
+    max-width: 400px;
+}
+
+.borda-botao {
+    margin-right: 5px;
+}
+
+.fonte > h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+}

@@ -1,0 +1,39 @@
+<div class="margem">
+
+    <div class="fonte">
+        <h2 class="text-primary text-center font-item">Inclusão de itens em pedidos</h2>
+    </div>
+    
+    <form>
+        <div class="mb-3">
+            <label class="form-label">Pedido</label>
+            <select class="form-select" [(ngModel)]="item.idpedido" name="idpedido">
+                <option value="0">SELECIONE</option>
+                <option *ngFor="let ped of pedidos" [value]="ped.idPedido">
+                    {{ped.numeroPedido}} - {{ped.nome}}
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Produto</label>
+            <select class="form-select" [(ngModel)]="item.idproduto" name="idproduto">
+                <option value="0">SELECIONE</option>
+                <option *ngFor="let prod of produtos" [value]="prod.id">{{prod.descricao}}</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Quantidade</label>
+            <input type="text" class="form-control" [(ngModel)]="item.quantidade" name="quantidade" />
+        </div>
+
+        <div class="mb-3">
+            <button class="btn btn-primary" (click)="incluirItem(item)">Adicionar item</button>
+        </div>
+        
+        <div>
+            <div *ngIf="resposta" [class]="estilo">{{resposta}}</div>
+        </div>
+    </form>
+</div>
